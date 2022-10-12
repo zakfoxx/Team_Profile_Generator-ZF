@@ -1,5 +1,5 @@
-const Engineer = require("../lib/Engineer");
-describe("Employee Test", () => {
+ const Engineer = require("../lib/Engineer");
+describe("Engineer Test", () => {
   describe("getGithub test", () => {
     it("get the engineer name", () => {
       const emp = new Engineer(
