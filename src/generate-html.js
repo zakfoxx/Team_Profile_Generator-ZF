@@ -1,18 +1,8 @@
-const Manager = require("../lib/Manager");
-
-function createCards(team) {
-  const managerHTML = team
-    .filter((manager) => manager.getRole() === "Manager")
-    .map((manager) => createManagerCard(manager));
-  const internHTML = team.filter((intern) => intern.getRole() === "Intern");
-  const engineerHTML = team.filter(
-    (engineer) => engineer.getRole() === "Engineer"
-  );
-  const allHTML = [...managerHTML, ...internHTML, ...engineerHTML];
-  return allHTML.join("");
-}
-function createManagerCard(manager) {
-  return `
+// const Employee = require("../lib/Employee");
+// const Manager = require("../lib/Manager");
+const generateTeam = (team) => {
+  function createManagerCard(manager) {
+    return `
         <div>
         <h2>Manager</h2>
         <h1>
@@ -27,9 +17,64 @@ function createManagerCard(manager) {
         </p>
     </div>
     `;
-}
+  }
+  function createInternCard(intern) {
+    return `
+        <div>
+        <h2>Intern</h2>
+        <h1>
+            ${intern.getName()}
+            ${intern.getId()}
+        </h1>
+        <p>
+            ${intern.getEmail()}
+        </p>
+        <p>
+         ${intern.getSchool()}
+        </p>
+    </div>
+    `;
+  }
+  function createEngineerCard(engineer) {
+    return `
+        <div>
+        <h2>Engineer</h2>
+        <h1>
+            ${engineer.getName()}
+            ${engineer.getId()}
+        </h1>
+        <p>
+            ${engineer.getEmail()}
+        </p>
+        <p>
+         ${engineer.getGithub()}
+        </p>
+    </div>
+    `;
+  }
+  const allHTML = [];
+  allHTML.push(
+    team
+      .filter((Employee) => Employee.getRole() === "Manager")
+      .map((manager) => createManagerCard(manager))
+  );
+  allHTML.push(
+    team
+      .filter((Employee) => Employee.getRole() === "Intern")
+      .map((intern) => createInternCard(intern))
+      .join("")
+  );
+  allHTML.push(
+    team
+      .filter((Employee) => Employee.getRole() === "Engineer")
+      .map((engineer) => createEngineerCard(engineer))
+      .join("")
+  );
+
+  return allHTML.join("");
+};
 module.exports = (team) => {
-  `
+  return `
     <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +84,7 @@ module.exports = (team) => {
     <title>Document</title>
 </head>
 <body>
-    ${createCards(team)}
+    ${generateTeam(team)}
 </body>
 </html>
     `;

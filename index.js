@@ -3,8 +3,11 @@ const Engineer = require("./lib/Engineer.js");
 const Intern = require("./lib/Intern.js");
 const Manager = require("./lib/Manager.js");
 const fs = require("fs");
+const path = require("path");
 const saveData = [];
-const generateHTML = require("./src/generate-html");
+const DIST_DIR = path.resolve(__dirname, "dist");
+const distPath = path.join(DIST_DIR, "team.html");
+const generateHTML = require("./src/generate-html.js");
 
 // THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
 
@@ -168,5 +171,9 @@ function addIntern() {
     });
 }
 function buildTeam() {
+  if (!fs.existsSync(DIST_DIR)) {
+    fs.mkdirSync(DIST_DIR);
+  }
+  fs.writeFileSync(distPath, generateHTML(saveData), "utf-8");
   generateHTML(saveData);
 }
