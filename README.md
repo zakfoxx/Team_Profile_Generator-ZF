@@ -1,19 +1,13 @@
 # Team_Profile_Generator-ZF
 
-GIVEN a command-line application that accepts user input
-WHEN I am prompted for my team members and their information
-THEN an HTML file is generated that displays a nicely formatted team roster based on user input
-WHEN I click on an email address in the HTML
-THEN my default email program opens and populates the TO field of the email with the address
-WHEN I click on the GitHub username
-THEN that GitHub profile opens in a new tab
-WHEN I start the application
-THEN I am prompted to enter the team manager’s name, employee ID, email address, and office number
-WHEN I enter the team manager’s name, employee ID, email address, and office number
-THEN I am presented with a menu with the option to add an engineer or an intern or to finish building my team
-WHEN I select the engineer option
-THEN I am prompted to enter the engineer’s name, ID, email, and GitHub username, and I am taken back to the menu
-WHEN I select the intern option
-THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu
-WHEN I decide to finish building my team
-THEN I exit the application, and the HTML is generated
+[video walkthrough](https://drive.google.com/file/d/1V8bSUDLOsigOIdQiUk6GvC4AwpLP2bFq/view)
+
+In this project, I created a webpage that displays my team's basic info so that I have quick access to their emails and GitHub profiles
+
+I used a command-line application that accepts user input through command prompts that gather user information and displays in an HTML file
+In the HTML file, a user can click on an email address in the HTML to email the employee
+In the HTML file, a user can click on the github username in the HTML to access the employee's github profile
+When the application is started, the user is promted to enter the team manager's name, employee ID, email address and office number
+The user is presented with a menu with the option to add an engineer or intern or to finish building the team
+When the user selects the engineer or intern option, the user is promoted to enter the engineer/interns name, ID, email, engineer's github username, and interns school, and then be taken back to the menu.
+When the user is finsihed building the team, the HTML is generated
